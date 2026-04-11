@@ -10,7 +10,7 @@ import { usePathname, useRouter } from "next/navigation";
 const NAV_ITEMS = [
   { id: "home", label: "Home", href: "/" },
   { id: "about", label: "About", href: "/about" },
-  { id: "playground", label: "Playground", href: "/#projects", pill: true },
+  { id: "playground", label: "Playground", href: "/playground", pill: true },
   { id: "work", label: "Work", href: "/#projects" },
   { id: "contact", label: "Contact", href: "/contact" },
 ];
@@ -25,15 +25,24 @@ export function Navbar() {
   React.useEffect(() => { setMounted(true); }, []);
 
   const nav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("/#") && pathname === "/") {
-      e.preventDefault();
-      const id = href.split("#")[1];
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("/#")) {
       setOpen(false);
+      if (pathname === "/") {
+        e.preventDefault();
+        const id = href.split("#")[1];
+        const el = document.getElementById(id);
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }
     } else if (href === pathname) {
       if (href === "/") {
+        e.preventDefault();
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
+      setOpen(false);
+    } else {
       setOpen(false);
     }
   };

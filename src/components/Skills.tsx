@@ -1,115 +1,165 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Monitor, 
-  Server, 
-  Database, 
-  Wrench, 
-  Code2
-} from "lucide-react";
 
-const skillCategories = [
+const categories = [
   {
-    title: "Frontend",
-    icon: <Monitor className="text-blue-500" size={28} />,
-    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    title: "Backend",
-    icon: <Server className="text-purple-500" size={28} />,
-    skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL"],
-  },
-  {
-    title: "Database",
-    icon: <Database className="text-green-500" size={28} />,
-    skills: ["MongoDB", "PostgreSQL", "Prisma", "Mongoose"],
-  },
-  {
-    title: "Languages",
-    icon: <Code2 className="text-yellow-500" size={28} />,
+    label: "Languages",
+    color: "#002DFF",
+    bg: "#EEF2FF",
+    icon: "{ }",
     skills: ["JavaScript", "TypeScript", "Java", "PHP"],
   },
   {
-    title: "Tools & DevOps",
-    icon: <Wrench className="text-orange-500" size={28} />,
-    skills: ["Git", "GitHub", "Docker", "Vercel", "Figma"],
+    label: "Frontend",
+    color: "#0891b2",
+    bg: "#ECFEFF",
+    icon: "◇",
+    skills: ["React.js", "Next.js", "HTML & CSS", "Bootstrap", "Tailwind CSS"],
+  },
+  {
+    label: "Backend",
+    color: "#7c3aed",
+    bg: "#F5F3FF",
+    icon: "⚙",
+    skills: ["Node.js", "Express.js", "REST APIs", "PHP"],
+  },
+  {
+    label: "Databases",
+    color: "#059669",
+    bg: "#ECFDF5",
+    icon: "▦",
+    skills: ["MongoDB", "MySQL", "PostgreSQL", "SQLite"],
+  },
+  {
+    label: "CS Fundamentals",
+    color: "#d97706",
+    bg: "#FFFBEB",
+    icon: "∑",
+    skills: ["DSA", "DBMS", "OOP", "OS", "TOC"],
+  },
+  {
+    label: "Tools",
+    color: "#dc2626",
+    bg: "#FEF2F2",
+    icon: "⚒",
+    skills: ["Git", "GitHub", "VS Code", "Postman", "XAMPP"],
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 },
-  },
+const card = {
+  hidden: { opacity: 0, y: 32 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
 };
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 bg-card/30">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold tracking-tight mb-4"
-          >
-            My Tech Stack
-          </motion.h2>
-          <motion.div 
-             initial={{ opacity: 0, scale: 0.8 }}
-             whileInView={{ opacity: 1, scale: 1 }}
-             viewport={{ once: true }}
-             className="w-16 h-1 bg-brand mx-auto rounded-full" 
-          />
+    <section
+      id="skills"
+      style={{ backgroundColor: "var(--bg)" }}
+      className="w-full py-24"
+    >
+      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 40px" }}>
+
+        {/* Header */}
+        <div style={{ marginBottom: 56 }}>
+          <p style={{
+            color: "#002DFF", fontSize: 11, fontWeight: 700,
+            letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 12,
+          }}>
+            Tech Stack
+          </p>
+          <h2 style={{
+            color: "var(--fg)",
+            fontSize: "clamp(40px, 6vw, 72px)",
+            fontWeight: 800,
+            letterSpacing: "-0.03em",
+            lineHeight: 1,
+            fontFamily: "var(--font-bricolage), sans-serif",
+          }}>
+            Skills
+          </h2>
         </div>
 
+        {/* Cards grid */}
         <motion.div
-          variants={containerVariants}
+          variants={stagger}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center"
+          whileInView="show"
+          viewport={{ once: true, margin: "-60px" }}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gap: 24,
+          }}
         >
-          {skillCategories.map((category, index) => (
+          {categories.map((cat) => (
             <motion.div
-              key={index}
-              variants={itemVariants}
-              className="group bg-card border border-border p-8 rounded-2xl shadow-sm hover:shadow-xl hover:border-brand/40 transition-all duration-300 relative overflow-hidden"
+              key={cat.label}
+              variants={card}
+              whileHover={{ y: -4 }}
+              style={{
+                background: "var(--card, #fff)",
+                border: "1.5px solid var(--border)",
+                borderRadius: 28,
+                padding: "28px 32px",
+                display: "flex",
+                flexDirection: "column",
+                gap: 20,
+                transition: "box-shadow 0.3s",
+                cursor: "default",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 12px 40px ${cat.color}18`)}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-brand/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="w-14 h-14 rounded-xl bg-background border border-border flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {category.icon}
+              {/* Card header */}
+              <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                <div style={{
+                  width: 44, height: 44, borderRadius: 14,
+                  background: cat.bg, display: "flex",
+                  alignItems: "center", justifyContent: "center",
+                  fontSize: 18, color: cat.color, fontWeight: 700,
+                  fontFamily: "monospace",
+                }}>
+                  {cat.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-4">{category.title}</h3>
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {category.skills.map((skill, sIndex) => (
-                    <span 
-                      key={sIndex}
-                      className="px-3 py-1 bg-background border border-border rounded-lg text-sm font-medium text-foreground/80"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+                <h3 style={{
+                  fontFamily: "var(--font-bricolage), sans-serif",
+                  fontSize: "1.1rem", fontWeight: 800,
+                  color: "var(--fg)", letterSpacing: "-0.01em",
+                }}>
+                  {cat.label}
+                </h3>
+              </div>
+
+              {/* Skill pills */}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                {cat.skills.map((s) => (
+                  <span
+                    key={s}
+                    style={{
+                      padding: "6px 14px",
+                      borderRadius: 999,
+                      fontSize: 12,
+                      fontWeight: 600,
+                      background: cat.bg,
+                      color: cat.color,
+                      border: `1px solid ${cat.color}28`,
+                    }}
+                  >
+                    {s}
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}
         </motion.div>
+
       </div>
     </section>
   );

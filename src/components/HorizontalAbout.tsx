@@ -5,13 +5,21 @@ import React, { useRef } from "react";
 import Image from "next/image";
 
 const skills = [
-  "Next.js", "React", "TypeScript", "Node.js",
-  "Express", "MongoDB", "Java", "PHP",
-  "Git", "Docker", "Tailwind CSS", "REST APIs",
-  "MySQL", "HTML & CSS", "JavaScript",
+  "React.js", "TypeScript", "JavaScript", "HTML & CSS",
+  "Bootstrap", "Tailwind CSS", "Node.js", "Express.js",
+  "REST APIs", "PHP", "Java", "MongoDB",
+  "MySQL", "PostgreSQL", "SQLite", "Git",
 ];
 
-const skillRotations = [-12, 6, 10, -7, 15, -9, 4, -11, 8, -5, 13, -3, 9, -14, 5];
+// Each skill: [left%, top%, rotate-deg] — organic scatter, not a grid
+const skillLayout: [number, number, number][] = [
+  [2,  2,  -10], [35, 0,   5],  [62, 3,   12],
+  [8,  18, 14],  [40, 16, -8],  [70, 14,  -5],
+  [0,  34, -6],  [32, 32,  10], [60, 30,  -13],
+  [10, 50, 9],   [38, 49, -12], [65, 48,   8],
+  [4,  66, -7],  [36, 65,  14], [63, 64,  -9],
+  [28, 80,  6],
+];
 
 const toolItems = [
   { label: "Git",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
@@ -27,23 +35,23 @@ const toolItems = [
 const defines = [
   {
     num: "01.",
-    title: "Problem Solver",
-    desc: "At the core of my work is a drive to solve real problems. I break down complex requirements into clean, efficient solutions that users love interacting with.",
+    title: "Backend Builder",
+    desc: "I specialize in building robust backend systems — RESTful APIs, CRUD operations, and database management using Node.js, PHP, MySQL and MongoDB in production environments.",
   },
   {
     num: "02.",
-    title: "Performance Focused",
-    desc: "Speed and accessibility are non-negotiable. Every decision I make — from architecture to UI — is driven by the goal of building fast, reliable software.",
+    title: "Strong Fundamentals",
+    desc: "Solid grounding in DSA, DBMS, OOP, and Operating Systems. I've solved 130+ LeetCode problems in Java and consistently apply CS fundamentals to write efficient, clean code.",
   },
   {
     num: "03.",
-    title: "Full-Stack Mindset",
-    desc: "From crafting pixel-perfect interfaces to designing scalable APIs, I work across the entire stack. This broad perspective lets me build cohesive, end-to-end products.",
+    title: "Full-Stack Capable",
+    desc: "From pixel-perfect React interfaces to scalable Node.js APIs, I work across the entire stack. My Warehouse Management project handled 1000+ records with a 25% speed improvement.",
   },
   {
     num: "04.",
-    title: "Lifelong Learner",
-    desc: "Technology evolves fast and I love keeping up. I am always exploring new tools, frameworks, and patterns to bring fresh ideas to every project I touch.",
+    title: "Achiever & Learner",
+    desc: "97.78 percentile in Naukri Young Turks 2025, NPTEL Elite+Silver, and 2nd place at CodeFiesta. I stay ahead of the curve and bring that energy to every project I take on.",
   },
 ];
 
@@ -64,17 +72,17 @@ export function HorizontalAbout() {
           {/* ━━ 1: Left Blue Block ━━ */}
           <div
             className="flex-none bg-[#002DFF] flex items-center justify-center relative"
-            style={{ width: "30vw", borderRadius: "0 72px 72px 0" }}
+            style={{ width: "30vw" }}
           >
             <div className="absolute top-12 left-10 w-2 h-2 bg-white rounded-full opacity-80" />
             <h2
               className="text-[#F5F3ED] text-center uppercase"
               style={{
-                fontFamily: "var(--font-bricolage), sans-serif",
-                fontSize: "clamp(2.6rem, 4.8vw, 5.2rem)",
-                fontWeight: 800,
-                lineHeight: 0.9,
-                letterSpacing: "-0.02em",
+                fontFamily: "var(--font-anton), sans-serif",
+                fontSize: "clamp(3rem, 5.5vw, 6rem)",
+                fontWeight: 400,
+                lineHeight: 0.95,
+                letterSpacing: "0.01em",
               }}
             >
               How It All<br />Started
@@ -91,7 +99,7 @@ export function HorizontalAbout() {
           >
             <div
               className="relative w-full h-full overflow-hidden"
-              style={{ borderRadius: 48, background: "#4d77ff" }}
+              style={{ borderRadius: 48, background: "#3B82F6" }}
             >
               <Image
                 src="/images/renuka.jpg"
@@ -99,12 +107,11 @@ export function HorizontalAbout() {
                 fill
                 sizes="24vw"
                 className="object-cover object-top"
-                style={{ mixBlendMode: "luminosity" }}
+                style={{
+                  filter: "grayscale(1) contrast(1.05) brightness(1.05)",
+                  mixBlendMode: "multiply",
+                }}
                 priority
-              />
-              <div
-                className="absolute inset-0"
-                style={{ background: "rgba(77, 119, 255, 0.45)", mixBlendMode: "multiply" }}
               />
             </div>
           </div>
@@ -113,24 +120,21 @@ export function HorizontalAbout() {
           <div style={{ width: "8vw", flexShrink: 0 }} />
 
           {/* ━━ 3: Narrative Text ━━ */}
-          <div
-            className="self-center flex-none flex flex-col justify-center gap-6"
-            style={{ width: "36vw", minWidth: 300 }}
-          >
+          <div className="flex-none self-center flex flex-col justify-center gap-6" style={{ width: "36vw", minWidth: 300 }}>
             <p style={{ fontSize: "clamp(1rem, 1.4vw, 1.25rem)", lineHeight: 1.7, color: "var(--fg)", fontWeight: 400 }}>
-              Hello again! I&apos;m Renuka, a software developer who loves
-              blending creativity and functionality into delightful user
-              experiences. My journey started with a curiosity for how things
-              work behind the screen.
+              Hello! I&apos;m Renuka Warkade, a B.Tech Computer Science student
+              at Madhav Institute of Technology &amp; Science, Gwalior (GPA 7.61),
+              currently working as a Software Developer Intern at Elsner Technologies.
             </p>
             <p style={{ fontSize: "clamp(1rem, 1.4vw, 1.25rem)", lineHeight: 1.7, color: "var(--fg)", fontWeight: 400 }}>
-              Fast forward after graduating, I became fascinated by how
-              well-crafted software could influence user interactions. This led
-              me to Full Stack development, where I found my true passion.
+              At Elsner, I build and maintain web applications using PHP &amp; MySQL,
+              implement RESTful APIs, and collaborate with senior developers on
+              real-world production systems.
             </p>
             <p style={{ fontSize: "clamp(1rem, 1.4vw, 1.25rem)", lineHeight: 1.7, color: "var(--fg)", fontWeight: 400 }}>
-              I believe great software should feel like a conversation — natural,
-              engaging, and always leaving you wanting more.
+              I scored 97.78 percentile in the Naukri Campus Young Turks 2025
+              Aptitude Test and hold an Elite+Silver recognition from NPTEL IIT Guwahati.
+              I believe great software should feel effortless — for the user and the team.
             </p>
           </div>
 
@@ -139,11 +143,11 @@ export function HorizontalAbout() {
 
           {/* ━━ 4: Know-More Panel (heading + toolkit | skills) ━━ */}
           <div
-            className="self-center flex-none flex gap-7"
-            style={{ width: "62vw", height: "78vh", minWidth: 580 }}
+            className="self-center flex-none flex gap-6"
+            style={{ width: "64vw", height: "80vh", minWidth: 600 }}
           >
             {/* Left col: heading + toolkit */}
-            <div className="flex flex-col justify-between" style={{ width: "44%" }}>
+            <div className="flex flex-col justify-between" style={{ width: "42%" }}>
               <div className="flex flex-col gap-4">
                 <div className="w-3 h-3 rounded-full" style={{ background: "#002DFF" }} />
                 <h2
@@ -207,8 +211,8 @@ export function HorizontalAbout() {
 
             {/* Right col: Skills card */}
             <div
-              className="flex flex-col flex-1"
-              style={{ background: "#fff", border: "1.5px solid #e0ddd5", borderRadius: 28, overflow: "hidden" }}
+              className="flex flex-col"
+              style={{ width: "38%", background: "#fff", border: "1.5px solid #e0ddd5", borderRadius: 28, overflow: "hidden" }}
             >
               <div style={{ padding: "20px 24px 14px" }}>
                 <h3 style={{ fontFamily: "var(--font-bricolage), sans-serif", fontSize: "1.4rem", fontWeight: 800, color: "var(--fg)", marginBottom: 6 }}>
@@ -218,24 +222,30 @@ export function HorizontalAbout() {
                   Technologies I use to build amazing software.
                 </p>
               </div>
-              <div className="relative flex-1 mx-3 mb-3">
-                {skills.map((skill, i) => (
-                  <div
-                    key={skill}
-                    className="absolute px-3 py-1.5 rounded-full bg-white font-medium"
-                    style={{
-                      transform: `rotate(${skillRotations[i % skillRotations.length]}deg)`,
-                      left: `${(i % 3) * 30 + (i % 2) * 4}%`,
-                      top: `${Math.floor(i / 3) * 22}%`,
-                      fontSize: "0.78rem",
-                      whiteSpace: "nowrap",
-                      color: "var(--fg)",
-                      border: "1.5px solid #ccc",
-                    }}
-                  >
-                    {skill}
-                  </div>
-                ))}
+              <div className="relative flex-1 mx-4 mb-4" style={{ minHeight: 0 }}>
+                {skills.map((skill, i) => {
+                  const [l, t, r] = skillLayout[i] ?? [0, 0, 0];
+                  return (
+                    <div
+                      key={skill}
+                      className="absolute bg-white font-medium"
+                      style={{
+                        transform: `rotate(${r}deg)`,
+                        left: `${l}%`,
+                        top: `${t}%`,
+                        fontSize: "0.75rem",
+                        whiteSpace: "nowrap",
+                        color: "var(--fg)",
+                        border: "1.5px solid #ccc",
+                        borderRadius: 999,
+                        padding: "6px 14px",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {skill}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

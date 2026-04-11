@@ -14,7 +14,7 @@ export default function ContactPage() {
       style={{ backgroundColor: "var(--bg)" }}
     >
       <Navbar />
-      <main className="flex-grow flex items-center justify-center px-6 py-8">
+      <main className="flex-grow flex items-center justify-center px-6 py-8 pt-48">
         <Contact />
       </main>
     </div>
