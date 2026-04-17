@@ -64,15 +64,15 @@ export function HorizontalAbout() {
     <section
       ref={targetRef}
       className="relative h-[450vh]"
-      style={{ backgroundColor: "#F9F7F2" }}
+      style={{ backgroundColor: "var(--bg)" }}
     >
       <div className="sticky top-0 h-screen overflow-hidden flex items-center">
         <motion.div style={{ x }} className="flex items-stretch h-screen">
 
           {/* ━━ 1: Left Blue Block ━━ */}
           <div
-            className="flex-none bg-[#002DFF] flex items-center justify-center relative"
-            style={{ width: "30vw" }}
+            className="flex-none flex items-center justify-center relative"
+            style={{ width: "30vw", background: "linear-gradient(135deg, #00d2ff, #3a7bd5)" }}
           >
             <div className="absolute top-12 left-10 w-2 h-2 bg-white rounded-full opacity-80" />
             <h2
@@ -99,7 +99,7 @@ export function HorizontalAbout() {
           >
             <div
               className="relative w-full h-full overflow-hidden"
-              style={{ borderRadius: 48, background: "#3B82F6" }}
+              style={{ borderRadius: 48, background: "var(--card)", border: "1px solid var(--border)" }}
             >
               <Image
                 src="/images/renuka.jpg"
@@ -108,8 +108,7 @@ export function HorizontalAbout() {
                 sizes="24vw"
                 className="object-cover object-top"
                 style={{
-                  filter: "grayscale(1) contrast(1.05) brightness(1.05)",
-                  mixBlendMode: "multiply",
+                  filter: "grayscale(0.5) contrast(1.1) brightness(0.9)",
                 }}
                 priority
               />
@@ -149,7 +148,7 @@ export function HorizontalAbout() {
             {/* Left col: heading + toolkit */}
             <div className="flex flex-col justify-between" style={{ width: "42%" }}>
               <div className="flex flex-col gap-4">
-                <div className="w-3 h-3 rounded-full" style={{ background: "#002DFF" }} />
+                <div className="w-3 h-3 rounded-full" style={{ background: "#06b6d4" }} />
                 <h2
                   style={{
                     fontFamily: "var(--font-bricolage), sans-serif",
@@ -167,8 +166,8 @@ export function HorizontalAbout() {
               {/* Toolkit card */}
               <div
                 style={{
-                  background: "#fff",
-                  border: "1.5px solid #e0ddd5",
+                  background: "var(--card)",
+                  border: "1.5px solid var(--border)",
                   borderRadius: 28,
                   overflow: "hidden",
                 }}
@@ -177,32 +176,35 @@ export function HorizontalAbout() {
                   <h3 style={{ fontFamily: "var(--font-bricolage), sans-serif", fontSize: "1.4rem", fontWeight: 800, color: "var(--fg)", marginBottom: 6 }}>
                     Toolkit
                   </h3>
-                  <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "#666" }}>
+                  <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "var(--muted)" }}>
                     Tools that help me build amazing products.
                   </p>
                 </div>
                 <div
                   style={{
-                    borderTop: "1.5px solid #e0ddd5",
-                    padding: "14px 18px",
+                    borderTop: "1px solid var(--border)",
+                    padding: "20px",
                     display: "grid",
                     gridTemplateColumns: "repeat(4, 1fr)",
-                    gap: 10,
+                    gap: 16,
                   }}
                 >
                   {toolItems.map((t) => (
-                    <div key={t.label} className="flex flex-col items-center gap-1">
+                    <div key={t.label} className="flex flex-col items-center gap-2 group cursor-pointer">
                       <div
+                        className="transition-transform duration-300 group-hover:scale-110 group-hover:bg-[rgba(255,255,255,0.05)]"
                         style={{
-                          width: 42, height: 42, borderRadius: 12,
-                          background: "#f5f5f5", display: "flex",
-                          alignItems: "center", justifyContent: "center", padding: 7,
+                          width: 54, height: 54, borderRadius: 16,
+                          background: "rgba(255,255,255,0.02)", display: "flex",
+                          alignItems: "center", justifyContent: "center", padding: 12,
+                          border: "1px solid var(--border)",
+                          boxShadow: "inset 0 1px 1px rgba(255,255,255,0.05)"
                         }}
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={t.icon} alt={t.label} width={26} height={26} style={{ objectFit: "contain" }} />
+                        <img src={t.icon} alt={t.label} width={30} height={30} style={{ objectFit: "contain", filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.1))" }} />
                       </div>
-                      <span style={{ fontSize: "0.56rem", color: "#888", textAlign: "center", lineHeight: 1.2 }}>{t.label}</span>
+                      <span style={{ fontSize: "0.65rem", color: "var(--muted)", textAlign: "center", fontWeight: 500, letterSpacing: "0.02em" }}>{t.label}</span>
                     </div>
                   ))}
                 </div>
@@ -212,34 +214,32 @@ export function HorizontalAbout() {
             {/* Right col: Skills card */}
             <div
               className="flex flex-col"
-              style={{ width: "38%", background: "#fff", border: "1.5px solid #e0ddd5", borderRadius: 28, overflow: "hidden" }}
+              style={{ width: "38%", background: "var(--card)", border: "1.5px solid var(--border)", borderRadius: 28, overflow: "hidden" }}
             >
               <div style={{ padding: "20px 24px 14px" }}>
                 <h3 style={{ fontFamily: "var(--font-bricolage), sans-serif", fontSize: "1.4rem", fontWeight: 800, color: "var(--fg)", marginBottom: 6 }}>
                   Skills
                 </h3>
-                <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "#666" }}>
+                <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "var(--muted)" }}>
                   Technologies I use to build amazing software.
                 </p>
               </div>
-              <div className="relative flex-1 mx-4 mb-4" style={{ minHeight: 0 }}>
-                {skills.map((skill, i) => {
-                  const [l, t, r] = skillLayout[i] ?? [0, 0, 0];
+              <div className="flex-1 mx-6 mb-8 flex flex-wrap content-end justify-center gap-3 w-full" style={{ minHeight: 0 }}>
+                {skills.map((skill) => {
                   return (
                     <div
                       key={skill}
-                      className="absolute bg-white font-medium"
+                      className="font-medium hover:scale-105 transition-transform duration-200 cursor-default"
                       style={{
-                        transform: `rotate(${r}deg)`,
-                        left: `${l}%`,
-                        top: `${t}%`,
-                        fontSize: "0.75rem",
-                        whiteSpace: "nowrap",
+                        fontSize: "0.8rem",
                         color: "var(--fg)",
-                        border: "1.5px solid #ccc",
+                        border: "1px solid var(--border)",
+                        background: "rgba(255, 255, 255, 0.03)",
+                        backdropFilter: "blur(4px)",
                         borderRadius: 999,
-                        padding: "6px 14px",
-                        lineHeight: 1.4,
+                        padding: "8px 18px",
+                        letterSpacing: "0.01em",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05)"
                       }}
                     >
                       {skill}
@@ -289,7 +289,8 @@ export function HorizontalAbout() {
                       color: "var(--fg)",
                     }}
                   >
-                    {d.num} {d.title}
+                    <span style={{ color: "#06b6d4", marginRight: 8 }}>{d.num}</span>
+                    {d.title}
                   </h3>
                   <p
                     style={{

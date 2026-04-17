@@ -48,7 +48,7 @@ export function Contact() {
 
         {/* Right: links */}
         <div style={{ flex: "0 0 auto", display: "flex", flexDirection: "column", gap: 8, minWidth: 200, paddingTop: 64 }}>
-          {[["Resume","#"], ["GitHub","https://github.com/RenukaW21"], ["LinkedIn","https://www.linkedin.com/in/renuka-warkade-a56691256/"], ["Instagram","#"]].map(([l, h]) => (
+          {[["Resume","https://drive.google.com/file/d/1gybao_59nsFNc-WltcNBF-7bo83tfIKP/view?usp=drivesdk"], ["GitHub","https://github.com/RenukaW21"], ["LinkedIn","https://www.linkedin.com/in/renuka-warkade-a56691256/"], ["Instagram","#"]].map(([l, h]) => (
             <a
               key={l} href={h}
               style={{

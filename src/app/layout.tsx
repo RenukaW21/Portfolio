@@ -35,7 +35,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${anton.variable} ${bricolage.variable} min-h-screen font-sans bg-background text-foreground antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >

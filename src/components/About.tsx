@@ -30,9 +30,9 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            style={{ color: "var(--fg)", fontSize: "clamp(36px,5vw,60px)", fontWeight: 800, lineHeight: 1, letterSpacing: "-0.03em", fontFamily: "var(--font-bricolage),sans-serif" }}
+            style={{ color: "var(--fg)", fontSize: "clamp(36px,4.5vw,52px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.02em", fontFamily: "var(--font-bricolage),sans-serif" }}
           >
-            More<br />about<br />me
+            Engineering <br/><span style={{ color: "#002DFF" }}>with purpose.</span>
           </motion.h2>
 
           {/* Right: body */}

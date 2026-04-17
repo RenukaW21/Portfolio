@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Recommended runtime: Node.js 20 LTS. This project may be less stable on newer Node versions when running `next dev` on Windows.
+
 First, run the development server:
 
 ```bash
@@ -15,6 +17,18 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+If the dev server ever fails with an out-of-memory error during startup, clear the local Next cache and try again:
+
+```bash
+rm -rf .next
+```
+
+On Windows Command Prompt:
+
+```bat
+rmdir /s /q .next
+```
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
