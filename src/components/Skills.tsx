@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const categories = [
   {
@@ -50,12 +50,16 @@ const categories = [
 const stagger = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08 } },
-};
+} satisfies Variants;
 
 const card = {
   hidden: { opacity: 0, y: 32 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
-};
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as const },
+  },
+} satisfies Variants;
 
 export function Skills() {
   return (

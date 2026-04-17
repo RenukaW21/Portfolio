@@ -57,7 +57,7 @@ export function Hero() {
               color: "var(--muted)", fontFamily: "var(--font-bricolage), sans-serif", fontSize: "clamp(16px, 2vw, 20px)",
               fontWeight: 400, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "8px"
             }}>
-              Hi, I'm Renuka
+              Hi, I&apos;m Renuka
             </p>
             <h1 style={{
               color: "var(--fg)", fontSize: "clamp(60px, 9vw, 120px)",

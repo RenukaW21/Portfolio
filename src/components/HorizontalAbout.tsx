@@ -11,32 +11,22 @@ const skills = [
   "MySQL", "PostgreSQL", "SQLite", "Git",
 ];
 
-// Each skill: [left%, top%, rotate-deg] — organic scatter, not a grid
-const skillLayout: [number, number, number][] = [
-  [2,  2,  -10], [35, 0,   5],  [62, 3,   12],
-  [8,  18, 14],  [40, 16, -8],  [70, 14,  -5],
-  [0,  34, -6],  [32, 32,  10], [60, 30,  -13],
-  [10, 50, 9],   [38, 49, -12], [65, 48,   8],
-  [4,  66, -7],  [36, 65,  14], [63, 64,  -9],
-  [28, 80,  6],
-];
-
 const toolItems = [
-  { label: "Git",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-  { label: "GitHub",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+  { label: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { label: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
   { label: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
   { label: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
   { label: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
-  { label: "React",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { label: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
   { label: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-  { label: "MySQL",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { label: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
 ];
 
 const defines = [
   {
     num: "01.",
     title: "Backend Builder",
-    desc: "I specialize in building robust backend systems — RESTful APIs, CRUD operations, and database management using Node.js, PHP, MySQL and MongoDB in production environments.",
+    desc: "I specialize in building robust backend systems - RESTful APIs, CRUD operations, and database management using Node.js, PHP, MySQL and MongoDB in production environments.",
   },
   {
     num: "02.",
@@ -66,17 +56,15 @@ export function HorizontalAbout() {
       className="relative h-[450vh]"
       style={{ backgroundColor: "var(--bg)" }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden flex items-center">
-        <motion.div style={{ x }} className="flex items-stretch h-screen">
-
-          {/* ━━ 1: Left Blue Block ━━ */}
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+        <motion.div style={{ x }} className="flex h-screen items-stretch">
           <div
-            className="flex-none flex items-center justify-center relative"
+            className="relative flex-none flex items-center justify-center"
             style={{ width: "30vw", background: "linear-gradient(135deg, #00d2ff, #3a7bd5)" }}
           >
-            <div className="absolute top-12 left-10 w-2 h-2 bg-white rounded-full opacity-80" />
+            <div className="absolute left-10 top-12 h-2 w-2 rounded-full bg-white opacity-80" />
             <h2
-              className="text-[#F5F3ED] text-center uppercase"
+              className="text-center uppercase text-[#F5F3ED]"
               style={{
                 fontFamily: "var(--font-anton), sans-serif",
                 fontSize: "clamp(3rem, 5.5vw, 6rem)",
@@ -85,20 +73,20 @@ export function HorizontalAbout() {
                 letterSpacing: "0.01em",
               }}
             >
-              How It All<br />Started
+              How It All
+              <br />
+              Started
             </h2>
           </div>
 
-          {/* gap */}
           <div style={{ width: "8vw", flexShrink: 0 }} />
 
-          {/* ━━ 2: Photo Card ━━ */}
           <div
-            className="self-center flex-none relative"
+            className="relative self-center flex-none"
             style={{ width: "24vw", height: "70vh", minWidth: 240 }}
           >
             <div
-              className="relative w-full h-full overflow-hidden"
+              className="relative h-full w-full overflow-hidden"
               style={{ borderRadius: 48, background: "var(--card)", border: "1px solid var(--border)" }}
             >
               <Image
@@ -115,11 +103,12 @@ export function HorizontalAbout() {
             </div>
           </div>
 
-          {/* gap */}
           <div style={{ width: "8vw", flexShrink: 0 }} />
 
-          {/* ━━ 3: Narrative Text ━━ */}
-          <div className="flex-none self-center flex flex-col justify-center gap-6" style={{ width: "36vw", minWidth: 300 }}>
+          <div
+            className="flex-none self-center flex flex-col justify-center gap-6"
+            style={{ width: "36vw", minWidth: 300 }}
+          >
             <p style={{ fontSize: "clamp(1rem, 1.4vw, 1.25rem)", lineHeight: 1.7, color: "var(--fg)", fontWeight: 400 }}>
               Hello! I&apos;m Renuka Warkade, a B.Tech Computer Science student
               at Madhav Institute of Technology &amp; Science, Gwalior (GPA 7.61),
@@ -133,22 +122,19 @@ export function HorizontalAbout() {
             <p style={{ fontSize: "clamp(1rem, 1.4vw, 1.25rem)", lineHeight: 1.7, color: "var(--fg)", fontWeight: 400 }}>
               I scored 97.78 percentile in the Naukri Campus Young Turks 2025
               Aptitude Test and hold an Elite+Silver recognition from NPTEL IIT Guwahati.
-              I believe great software should feel effortless — for the user and the team.
+              I believe great software should feel effortless - for the user and the team.
             </p>
           </div>
 
-          {/* gap */}
           <div style={{ width: "10vw", flexShrink: 0 }} />
 
-          {/* ━━ 4: Know-More Panel (heading + toolkit | skills) ━━ */}
           <div
             className="self-center flex-none flex gap-6"
             style={{ width: "64vw", height: "80vh", minWidth: 600 }}
           >
-            {/* Left col: heading + toolkit */}
             <div className="flex flex-col justify-between" style={{ width: "42%" }}>
               <div className="flex flex-col gap-4">
-                <div className="w-3 h-3 rounded-full" style={{ background: "#06b6d4" }} />
+                <div className="h-3 w-3 rounded-full" style={{ background: "#06b6d4" }} />
                 <h2
                   style={{
                     fontFamily: "var(--font-bricolage), sans-serif",
@@ -159,11 +145,14 @@ export function HorizontalAbout() {
                     color: "var(--fg)",
                   }}
                 >
-                  Let&apos;s know<br />more about<br />me
+                  Let&apos;s know
+                  <br />
+                  more about
+                  <br />
+                  me
                 </h2>
               </div>
 
-              {/* Toolkit card */}
               <div
                 style={{
                   background: "var(--card)",
@@ -189,29 +178,41 @@ export function HorizontalAbout() {
                     gap: 16,
                   }}
                 >
-                  {toolItems.map((t) => (
-                    <div key={t.label} className="flex flex-col items-center gap-2 group cursor-pointer">
+                  {toolItems.map((tool) => (
+                    <div key={tool.label} className="group flex cursor-pointer flex-col items-center gap-2">
                       <div
                         className="transition-transform duration-300 group-hover:scale-110 group-hover:bg-[rgba(255,255,255,0.05)]"
                         style={{
-                          width: 54, height: 54, borderRadius: 16,
-                          background: "rgba(255,255,255,0.02)", display: "flex",
-                          alignItems: "center", justifyContent: "center", padding: 12,
+                          width: 54,
+                          height: 54,
+                          borderRadius: 16,
+                          background: "rgba(255,255,255,0.02)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: 12,
                           border: "1px solid var(--border)",
-                          boxShadow: "inset 0 1px 1px rgba(255,255,255,0.05)"
+                          boxShadow: "inset 0 1px 1px rgba(255,255,255,0.05)",
                         }}
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={t.icon} alt={t.label} width={30} height={30} style={{ objectFit: "contain", filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.1))" }} />
+                        <img
+                          src={tool.icon}
+                          alt={tool.label}
+                          width={30}
+                          height={30}
+                          style={{ objectFit: "contain", filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.1))" }}
+                        />
                       </div>
-                      <span style={{ fontSize: "0.65rem", color: "var(--muted)", textAlign: "center", fontWeight: 500, letterSpacing: "0.02em" }}>{t.label}</span>
+                      <span style={{ fontSize: "0.65rem", color: "var(--muted)", textAlign: "center", fontWeight: 500, letterSpacing: "0.02em" }}>
+                        {tool.label}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Right col: Skills card */}
             <div
               className="flex flex-col"
               style={{ width: "38%", background: "var(--card)", border: "1.5px solid var(--border)", borderRadius: 28, overflow: "hidden" }}
@@ -224,36 +225,32 @@ export function HorizontalAbout() {
                   Technologies I use to build amazing software.
                 </p>
               </div>
-              <div className="flex-1 mx-6 mb-8 flex flex-wrap content-end justify-center gap-3 w-full" style={{ minHeight: 0 }}>
-                {skills.map((skill) => {
-                  return (
-                    <div
-                      key={skill}
-                      className="font-medium hover:scale-105 transition-transform duration-200 cursor-default"
-                      style={{
-                        fontSize: "0.8rem",
-                        color: "var(--fg)",
-                        border: "1px solid var(--border)",
-                        background: "rgba(255, 255, 255, 0.03)",
-                        backdropFilter: "blur(4px)",
-                        borderRadius: 999,
-                        padding: "8px 18px",
-                        letterSpacing: "0.01em",
-                        boxShadow: "0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05)"
-                      }}
-                    >
-                      {skill}
-                    </div>
-                  );
-                })}
+              <div className="mx-6 mb-8 flex w-full flex-1 flex-wrap content-end justify-center gap-3" style={{ minHeight: 0 }}>
+                {skills.map((skill) => (
+                  <div
+                    key={skill}
+                    className="cursor-default font-medium transition-transform duration-200 hover:scale-105"
+                    style={{
+                      fontSize: "0.8rem",
+                      color: "var(--fg)",
+                      border: "1px solid var(--border)",
+                      background: "rgba(255, 255, 255, 0.03)",
+                      backdropFilter: "blur(4px)",
+                      borderRadius: 999,
+                      padding: "8px 18px",
+                      letterSpacing: "0.01em",
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05)",
+                    }}
+                  >
+                    {skill}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* gap */}
           <div style={{ width: "8vw", flexShrink: 0 }} />
 
-          {/* ━━ 5: "What defines me" Panel ━━ */}
           <div
             className="self-center flex-none flex flex-col gap-10"
             style={{ width: "58vw", minWidth: 540 }}
@@ -271,7 +268,6 @@ export function HorizontalAbout() {
               What defines me
             </h2>
 
-            {/* 2×2 grid */}
             <div
               style={{
                 display: "grid",
@@ -279,8 +275,8 @@ export function HorizontalAbout() {
                 gap: "32px 48px",
               }}
             >
-              {defines.map((d) => (
-                <div key={d.num} className="flex flex-col gap-2">
+              {defines.map((define) => (
+                <div key={define.num} className="flex flex-col gap-2">
                   <h3
                     style={{
                       fontFamily: "var(--font-bricolage), sans-serif",
@@ -289,8 +285,8 @@ export function HorizontalAbout() {
                       color: "var(--fg)",
                     }}
                   >
-                    <span style={{ color: "#06b6d4", marginRight: 8 }}>{d.num}</span>
-                    {d.title}
+                    <span style={{ color: "#06b6d4", marginRight: 8 }}>{define.num}</span>
+                    {define.title}
                   </h3>
                   <p
                     style={{
@@ -300,16 +296,14 @@ export function HorizontalAbout() {
                       fontWeight: 400,
                     }}
                   >
-                    {d.desc}
+                    {define.desc}
                   </p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* right padding */}
           <div style={{ width: "15vw", flexShrink: 0 }} />
-
         </motion.div>
       </div>
     </section>

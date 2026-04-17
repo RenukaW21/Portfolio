@@ -44,7 +44,7 @@ export function About() {
             style={{ display: "flex", flexDirection: "column", gap: 20 }}
           >
             <p style={{ color: "var(--muted)", fontSize: 17, lineHeight: 1.75 }}>
-              I'm a passionate Full Stack Developer who loves turning complex problems into clean,
+              I&apos;m a passionate Full Stack Developer who loves turning complex problems into clean,
               elegant digital solutions that people genuinely enjoy using.
             </p>
             <p style={{ color: "var(--muted)", fontSize: 17, lineHeight: 1.75 }}>
